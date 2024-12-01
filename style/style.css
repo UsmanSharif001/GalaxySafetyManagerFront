@@ -1,0 +1,19 @@
+.button-style {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none; /* Remove underline */
+    background-color: #007bff; /* Button color */
+    color: white; /* Text color */
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button-style:hover {
+    background-color: #0056b3; /* Darker shade for hover */
+}
+
+
