@@ -1,34 +1,43 @@
+import {initializeMenuOR} from "./menuOR.js";
+import {initializeMainMenu} from "./mainMenu.js";
 
 const differentViews = {
+    "#mainmenu": () => initializeMainMenu(),
+    "#OR": () => initializeMenuOR(),
 
 }
 
 function handleViewChange() {
-    let defaultView = "#"; // default view
+    let defaultView = "#mainmenu"; // default view
 
-    if (location.hash) {
-        defaultView = location.hash; // extract the hash from the URL
+    if (!location.hash) {
+        location.hash = defaultView; // if there is no hash, then sets the default view to #mainmenu
+    } else{
+        defaultView = location.hash // if there is a hash, updates the default view
     }
 
-    const initializeView = differentViews[defaultView];
+
+    const initializeView = differentViews[defaultView]; //uses the differentViews object ( the Array at the top)
+                                                        // to find the appropriate function for the hash
 
     if (initializeView) {
-        initializeView()
+       initializeView();                                //if a function exists for the current hash, execute it
     }
 }
 
+
+
 function initializeViewNavigation() {
-    window.addEventListener("hashchange", handleViewChange);
+    window.addEventListener("hashchange", handleViewChange);  //Adds an event listener which triggers
+                                                                            // on hash change
 
-    handleViewChange();// set initial view
-
-
+    handleViewChange();// set initial view when the page is loaded
 
 
 }
 
 
-export{ initializeViewNavigation }
+export {initializeViewNavigation}
 
 
 
