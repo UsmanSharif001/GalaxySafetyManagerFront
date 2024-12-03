@@ -2,7 +2,7 @@ console.log("jeg er i Emergency plan");
 
 const emergencyplanHTML = () => {
     return `
-    <p> Dette er en emergency plan :)</p>
+    <p> Dette er en evarkueringsplan :)</p>
  `
 }
 
