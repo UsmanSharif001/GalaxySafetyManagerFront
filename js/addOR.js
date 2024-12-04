@@ -1,4 +1,4 @@
-import{postObjectAsJson} from "./module.js";
+import {postObjectAsJson} from "./module.js";
 
 const urlPostOR = "http://localhost:8080/createOR"
 
@@ -98,24 +98,24 @@ const addORHtml = () => {
     `
 }
 
-async function postFormDataAsJson(url,formData){
+async function postFormDataAsJson(url, formData) {
     console.log("Jeg er i postFormDataAsJson")
     const plainFormData = Object.fromEntries(formData.entries());
-    const resp = await postObjectAsJson(url,plainFormData,"POST")
+    const resp = await postObjectAsJson(url, plainFormData, "POST")
     return resp;
 }
 
-async function handleFormSubmit(event){
+async function handleFormSubmit(event) {
     event.preventDefault()
 
     const form = document.getElementById("postOR")
     const url = urlPostOR
 
-    try{
+    try {
         const formData = new FormData(form);
-        const responseData = await postFormDataAsJson(url,formData);
+        const responseData = await postFormDataAsJson(url, formData);
         form.reset()
-    }catch (error){
+    } catch (error) {
         alert(error.message);
         console.error(error)
     }
@@ -123,8 +123,8 @@ async function handleFormSubmit(event){
 
 let isEventListenerAdded = false
 
-function addORSetup(){
-    if(!isEventListenerAdded){
+function addORSetup() {
+    if (!isEventListenerAdded) {
         console.log("Tilføjer en eventlistener")
 
         document.getElementById("content").innerHTML = addORHtml()
@@ -135,7 +135,7 @@ function addORSetup(){
     }
 }
 
-export function initializeAddOR(){
+export function initializeAddOR() {
     addORSetup()
 }
 
