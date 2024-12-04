@@ -43,8 +43,8 @@ export function initializeAddSSOR() {
         }
     });
 
-    document.getElementById("cancel-add").addEventListener("click", () => {
+    document.getElementById("cancel-add").addEventListener("click", (event) => {
+        event.preventDefault(); // Prevent form submission when clicking "Cancel"
         location.hash = "#SSOR";
     });
-
 }
