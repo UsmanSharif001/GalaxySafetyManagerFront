@@ -2,12 +2,17 @@ import {initializeMenuOR} from "./menuOR.js";
 import {initializeMainMenu} from "./mainMenu.js";
 import {initializeMenuSSOR} from "./menuSSOR.js";
 import {initializeMenuEmergencyplan} from "./Emergencyplan.js";
+import {initializeAddSSOR} from "./addSSOR.js";
+import {initializeSSORArchive} from "./archivedSSOR.js";
+
 
 const differentViews = {
     "#mainmenu": () => initializeMainMenu(),
     "#OR": () => initializeMenuOR(),
     "#SSOR": () => initializeMenuSSOR(),
+    "#udfyldSSOR":() => initializeAddSSOR(),
     "#Emergencyplan": () => initializeMenuEmergencyplan(),
+    "#arkivSSOR":() => initializeSSORArchive(),
 
 }
 
