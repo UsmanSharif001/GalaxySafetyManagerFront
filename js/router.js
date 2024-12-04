@@ -2,12 +2,14 @@ import {initializeMenuOR} from "./menuOR.js";
 import {initializeMainMenu} from "./mainMenu.js";
 import {initializeMenuSSOR} from "./menuSSOR.js";
 import {initializeMenuEmergencyplan} from "./Emergencyplan.js";
+import {initializeArchiveOR} from "./archiveOR.js";
 
 const differentViews = {
     "#mainmenu": () => initializeMainMenu(),
     "#OR": () => initializeMenuOR(),
     "#SSOR": () => initializeMenuSSOR(),
     "#Emergencyplan": () => initializeMenuEmergencyplan(),
+    "#archiveOR": () => initializeArchiveOR()
 
 }
 
