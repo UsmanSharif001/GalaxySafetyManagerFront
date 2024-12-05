@@ -31,7 +31,10 @@ function handleViewChange() {
                                                         // to find the appropriate function for the hash
 
     if (initializeView) {
+        console.log("Initialized view for", defaultView)
        initializeView();                                //if a function exists for the current hash, execute it
+    }else{
+        console.log("Found no view", defaultView)
     }
 }
 
