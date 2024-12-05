@@ -11,18 +11,8 @@ const addORHtml = () => {
             <h2>Udfyld Driftjournal</h2>
             <form id="postOR">
               
-                <label for="orName">Navn:</label>
-                <input type="text" id="orName" name="orName" required>
-                <br>
-
-                <label for="orAddress">Adresse:</label>
-                <input type="text" id="orAddress" name="orAddress" required>
-                <br>
-
-                <label for="orPhoneNumber">Telefonnummer:</label>
-                <input type="number" id="orPhoneNumber" name="orPhoneNumber" required>
-                <br>
-                 
+           
+         
                  <h3>Flugtveje</h3>
                  
                 <label for="escapeRouteClear">Flugtveje er frie og ryddelige i hele deres bredde</label>
@@ -93,6 +83,7 @@ const addORHtml = () => {
                 <br>
 
                 <button id ="pbPostOR" type="submit">Tilføj</button>
+                <a id="cancelLink" href="#OR" class="button-style">Tilbage</a>
             </form>
         </div>
     `
@@ -114,6 +105,14 @@ async function handleFormSubmit(event) {
     const form = document.getElementById("postOR")
     const url = urlPostOR
 
+    const date = document.getElementById("dateTime").value;
+    const signature = document.getElementById("signature").value;
+
+    if (!date || !signature) {
+        alert("Husk at udfylde Dato og underskrift");
+        return;
+    }
+
     try {
         const formData = new FormData(form);
         for (var pair of formData.entries()) {
@@ -127,18 +126,18 @@ async function handleFormSubmit(event) {
     }
 }
 
-let isEventListenerAdded = false
+
 
 function addORSetup() {
-    if (!isEventListenerAdded) {
+
         console.log("Tilføjer en eventlistener")
 
         document.getElementById("content").innerHTML = addORHtml()
 
+
         const submit = document.getElementById("pbPostOR")
         submit.addEventListener("click", handleFormSubmit);
-        isEventListenerAdded = true
-    }
+
 }
 
 export function initializeAddOR() {
