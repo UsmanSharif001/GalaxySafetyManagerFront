@@ -1,19 +1,116 @@
+html {
+    background-color: #F4F4F4;
+}
+
+#app {
+    height: 100%; /* Fill available vertical space */
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center horizontally */
+    width: 100%; /* Full width */
+}
+
+#content {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    gap: 20px; /* Add space between items */
+    align-items: center; /* Center items horizontally (optional) */
+    padding: 20px; /* Optional padding */
+    /*width: 100%;*/
+}
+
+div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F4F4F4;
+    padding: 10px;
+    width: 80%;
+    color: white;
+    text-align: center;
+}
+
 .button-style {
     display: inline-block;
     padding: 10px 20px;
     text-decoration: none; /* Remove underline */
-    background-color: #007bff; /* Button color */
+    background-color: #FC7E0B; /* Button color */
     color: white; /* Text color */
     border: none;
     border-radius: 4px;
+    font-family: 'Montserrat', sans-serif;
     font-size: 16px;
     text-align: center;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .button-style:hover {
-    background-color: #0056b3; /* Darker shade for hover */
+    background-color: #D96809; /* Darker shade for hover */
+    transform: scale(1.05);
+}
+
+.site-header {
+    display: flex;
+    justify-content: center; /* Center the image horizontally */
+    align-items: center; /* Center vertically if needed */
+    margin-bottom: 0px; /* Spacing between header and content */
+}
+
+.header-image {
+    width: calc(80% - 40px); /* Match button width (adjust as needed) */
+    max-width: 600px; /* Optional max width for larger screens */
+    object-fit: cover; /* Ensure proper scaling */
+}
+
+#postORdiv {
+    background-color: #FFF;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+form label {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+form input,
+form textarea {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+}
+
+form input[type="checkbox"] {
+    width: auto;
+    margin-right: 10px;
+}
+
+form button {
+    padding: 10px 20px;
+    background-color: #FC7E0B;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #D96809;
 }
 
 
