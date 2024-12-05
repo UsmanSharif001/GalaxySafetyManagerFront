@@ -1,24 +1,22 @@
-import { fetchAnyUrl } from "./module.js";
+import {fetchAnyUrl, restDelete} from "./module.js";
 console.log("er i archivedSSOR")
-
 
 const arkivSSORHTML = () => `
     <h2>Sprinkler System Archive</h2>
     <table id="ssor-table">
         <thead>
             <tr>
-                <th>Date</th>
-                <th>Pressure Over Dry Valve</th>
-                <th>Pressure Over Wet Valve</th>
-                <th>Pressure Under Valves</th>
-                <th>Pressure On Water Plug</th>
-                <th>Alarm To Fire Department</th>
-                <th>Comments</th>
-                <th>Signature</th>
+                <th>Dato</th>
+                <th>Over våd ventil</th>
+                <th>Under ventiler</th>
+                <th>Tryk på vandstik (bar)</th>
+                <th>Fungerende alarm til brandvæsen</th>
+                <th>Bemærkninger</th>
+                <th>Underskrift</th>
             </tr>
         </thead>
         <tbody>
-            <!-- Dynamic rows will be inserted here -->
+          
         </tbody>
     </table>
 `;
@@ -45,7 +43,6 @@ export async function initializeSSORArchive() {
         const row = `
             <tr>
                 <td>${ssor.date}</td>
-                <td>${ssor.pressureOverDryValve}</td>
                 <td>${ssor.pressureOverWetValve}</td>
                 <td>${ssor.pressureUnderValves}</td>
                 <td>${ssor.pressureOnWaterPlug}</td>

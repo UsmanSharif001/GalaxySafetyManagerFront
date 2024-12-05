@@ -8,15 +8,15 @@ const addSSORHTML = () => `
     <form id="add-ssor-form">
         <label>Date:</label>
         <input type="date" name="date"  /><br/>
-        <label>Pressure Over Wet Valve:</label>
+        <label>Tryk over våd ventil:</label>
         <input type="number" name="pressureOverWetValve"  /><br/>
-        <label>Pressure Under Valves:</label>
+        <label>Under ventiler:</label>
         <input type="number" name="pressureUnderValves"  /><br/>
-        <label>Pressure On Waterplug</label>
+        <label>Tryk på vandstik(bar)</label>
         <input type="number" name="pressureOnWaterPlug" /><br/>
-        <label>Alarm To Firedepartment Working</label>
+        <label>Fungerende alarm til brandvæsen</label>
         <input type="checkbox" name="alarmToFireDepartmentWorking" /><br/>
-        <label>Comments:</label>
+        <label>Bemærkninger:</label>
         <textarea name="comments"></textarea><br/>
         <label>Signature</label>
         <input type="text" name="signature" /><br>
@@ -44,7 +44,7 @@ export function initializeAddSSOR() {
     });
 
     document.getElementById("cancel-add").addEventListener("click", (event) => {
-        event.preventDefault(); // Prevent form submission when clicking "Cancel"
+        event.preventDefault();
         location.hash = "#SSOR";
     });
 }
