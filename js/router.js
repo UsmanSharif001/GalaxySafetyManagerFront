@@ -10,7 +10,7 @@ const differentViews = {
     "#OR": () => initializeMenuOR(),
     "#SSOR": () => initializeMenuSSOR(),
     "#Emergencyplan": () => initializeMenuEmergencyplan(),
-    "#archiveOR": () => initializeArchiveOR()
+    "#archiveOR": () => initializeArchiveOR(),
     "#udfyldOR": () => initializeAddOR(),
 
 }
