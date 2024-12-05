@@ -74,7 +74,7 @@ const addORHtml = () => {
                 <textarea id="errorDescription" name="errorDescription" rows="4" cols="50"></textarea>
                 <br>
 
-                <label for="dateTime">Date:</label>
+                <label for="dateTime">Dato:</label>
                 <input type="date" id="dateTime" name="dateTime" required>
                 <br>
 
