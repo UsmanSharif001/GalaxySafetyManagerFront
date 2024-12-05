@@ -14,6 +14,7 @@ html {
 #content {
     display: flex;
     flex-direction: column; /* Stack items vertically */
+    justify-content: center;
     gap: 20px; /* Add space between items */
     align-items: center; /* Center items horizontally (optional) */
     padding: 20px; /* Optional padding */
@@ -22,12 +23,13 @@ html {
 
 div {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: #F4F4F4;
     padding: 10px;
     width: 80%;
-    color: white;
+    color: #D96809;
     text-align: center;
 }
 
@@ -65,6 +67,8 @@ div {
 }
 
 #postORdiv {
+    font-family: 'Montserrat', sans-serif;
+    color: #D96809;
     background-color: #FFF;
     padding: 20px;
     border-radius: 8px;
@@ -76,6 +80,8 @@ div {
 form {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 10px;
 }
 
@@ -111,6 +117,13 @@ form button {
 
 form button:hover {
     background-color: #D96809;
+}
+
+form h2,
+form h3 {
+    font-size: 18px;
+    margin-top: 20px;
+    color: #D96809;
 }
 
 
