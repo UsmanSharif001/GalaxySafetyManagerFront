@@ -3,15 +3,23 @@ import {initializeMainMenu} from "./mainMenu.js";
 import {initializeMenuSSOR} from "./menuSSOR.js";
 import {initializeMenuEmergencyplan} from "./Emergencyplan.js";
 import {initializeArchiveOR} from "./archiveOR.js";
+
+import {initializeAddSSOR} from "./addSSOR.js";
+import {initializeSSORArchive} from "./archivedSSOR.js";
+
+
 import {initializeAddOR} from "./addOR.js";
 
 const differentViews = {
     "#mainmenu": () => initializeMainMenu(),
     "#OR": () => initializeMenuOR(),
     "#SSOR": () => initializeMenuSSOR(),
+    "#udfyldSSOR":() => initializeAddSSOR(),
     "#Emergencyplan": () => initializeMenuEmergencyplan(),
     "#archiveOR": () => initializeArchiveOR(),
+    "#arkivSSOR":() => initializeSSORArchive(),
     "#udfyldOR": () => initializeAddOR(),
+
 
 }
 
@@ -29,7 +37,10 @@ function handleViewChange() {
                                                         // to find the appropriate function for the hash
 
     if (initializeView) {
+        console.log("Initialized view for", defaultView)
        initializeView();                                //if a function exists for the current hash, execute it
+    }else{
+        console.log("Found no view", defaultView)
     }
 }
 
