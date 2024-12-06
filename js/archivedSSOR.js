@@ -1,32 +1,44 @@
-import {fetchAnyUrl, restDelete} from "./module.js";
-console.log("er i archivedSSOR")
-
 const arkivSSORHTML = () => `
     <h2>Sprinkler System Archive</h2>
     <table id="ssor-table">
         <thead>
             <tr>
                 <th>Dato</th>
-                <th>Over våd ventil</th>
-                <th>Under ventiler</th>
+                <th colspan="2">Tryk over / under alarmventil (bar)</th>
                 <th>Tryk på vandstik (bar)</th>
                 <th>Fungerende alarm til brandvæsen</th>
                 <th>Bemærkninger</th>
                 <th>Underskrift</th>
             </tr>
+            <tr>
+                <th></th>
+                <th>Over våd ventil</th>
+                <th>Under ventiler</th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
         </thead>
         <tbody>
-          
+            <!-- Dynamic rows will be inserted here -->
         </tbody>
     </table>
+    <div class="back-button-container">
+        <button id="back-to-ssor">Fortryd</button>
+    </div>
 `;
 
-// Now define the initializeSSORArchive function
 export async function initializeSSORArchive() {
     const content = document.getElementById("content");
 
     // Inject the HTML structure into the content
     content.innerHTML = arkivSSORHTML();
+
+    // Add an event listener for the back button
+    document.getElementById("back-to-ssor").addEventListener("click", () => {
+        location.hash = "#SSOR"; // Navigate to the SSOR view
+    });
 
     // Fetch SSOR data from the backend API
     const response = await fetch("http://localhost:8080/ssor");
