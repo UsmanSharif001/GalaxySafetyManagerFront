@@ -106,7 +106,7 @@ async function handleFormSubmit(event) {
     const url = urlPostOR
 
     const date = document.getElementById("dateTime").value;
-    const signature = document.getElementById("signature").value;
+    const signature = document.getElementById("signatur - Udfyld med Initialer").value;
 
     if (!date || !signature) {
         alert("Husk at udfylde Dato og underskrift");
