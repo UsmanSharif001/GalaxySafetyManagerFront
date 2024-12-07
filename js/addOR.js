@@ -78,7 +78,7 @@ const addORHtml = () => {
                 <input type="date" id="dateTime" name="dateTime" required>
                 <br>
 
-                <label for="signature">Signature:</label>
+                <label for="signature">Signatur - Udfyld med initialer:</label>
                 <input type="text" id="signature" name="signature" required>
                 <br>
 
@@ -106,7 +106,7 @@ async function handleFormSubmit(event) {
     const url = urlPostOR
 
     const date = document.getElementById("dateTime").value;
-    const signature = document.getElementById("signatur - Udfyld med Initialer").value;
+    const signature = document.getElementById("signature").value;
 
     if (!date || !signature) {
         alert("Husk at udfylde Dato og underskrift");
