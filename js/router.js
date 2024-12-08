@@ -2,8 +2,12 @@ import {initializeMenuOR} from "./menuOR.js";
 import {initializeMainMenu} from "./mainMenu.js";
 import {initializeMenuSSOR} from "./menuSSOR.js";
 import {initializeMenuEmergencyplan} from "./Emergencyplan.js";
+import {initializeArchiveOR} from "./archiveOR.js";
+
 import {initializeAddSSOR} from "./addSSOR.js";
 import {initializeSSORArchive} from "./archivedSSOR.js";
+
+
 import {initializeAddOR} from "./addOR.js";
 
 const differentViews = {
@@ -12,9 +16,9 @@ const differentViews = {
     "#SSOR": () => initializeMenuSSOR(),
     "#udfyldSSOR":() => initializeAddSSOR(),
     "#Emergencyplan": () => initializeMenuEmergencyplan(),
+    "#archiveOR": () => initializeArchiveOR(),
     "#arkivSSOR":() => initializeSSORArchive(),
     "#udfyldOR": () => initializeAddOR(),
-
 }
 
 function handleViewChange() {
@@ -22,8 +26,8 @@ function handleViewChange() {
 
     if (!location.hash) {
         location.hash = defaultView; // if there is no hash, then sets the default view to #mainmenu
-    } else{
-        defaultView = location.hash // if there is a hash, updates the default view
+    } else {
+        defaultView = location.hash.match(/^#\w+/)[0] // if there is a hash, updates the default view, ignore query params
     }
 
 
