@@ -119,6 +119,9 @@ async function handleFormSubmit(event) {
             console.log(pair[0]+ ', ' + pair[1]);
         }
         const responseData = await postFormDataAsJson(url, formData);
+
+        alert("Driftjournalen blev oprettet");
+
         form.reset()
     } catch (error) {
         alert(error.message);
