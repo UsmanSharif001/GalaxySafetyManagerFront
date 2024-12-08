@@ -74,7 +74,7 @@ const addORHtml = () => {
                 <textarea id="errorDescription" name="errorDescription" rows="4" cols="50"></textarea>
                 <br>
 
-                <label for="dateTime">Date:</label>
+                <label for="dateTime">Dato:</label>
                 <input type="date" id="dateTime" name="dateTime" required>
                 <br>
 
@@ -119,6 +119,9 @@ async function handleFormSubmit(event) {
             console.log(pair[0]+ ', ' + pair[1]);
         }
         const responseData = await postFormDataAsJson(url, formData);
+
+        alert("Driftjournalen blev oprettet");
+
         form.reset()
     } catch (error) {
         alert(error.message);
