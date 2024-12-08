@@ -15,9 +15,7 @@ const differentViews = {
     "#SSOR": () => initializeMenuSSOR(),
     "#udfyldSSOR":() => initializeAddSSOR(),
     "#Emergencyplan": () => initializeMenuEmergencyplan(),
-
     "#arkivSSOR":() => initializeSSORArchive(),
-=======
     "#udfyldOR": () => initializeAddOR(),
 
 
