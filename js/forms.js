@@ -6,8 +6,8 @@ function addORHtml(formData){
         <a id="cancelLink" href="#OR" class="button-style">Tilbage</a>
     `
     const existingFormFooter = `
-        <button>Rediger</button>
-        <button>Slet</button>
+        <button id="editButton">Rediger</button>
+        <button id="deleteButton">Slet</button>
     `
     const formFooter = formData ? existingFormFooter : newFormFooter;
 
