@@ -1,4 +1,5 @@
 import {fetchAnyUrl} from "./module.js";
+import {addORHtml} from "./forms.js";
 
 console.log("jeg er i archiveOR")
 
@@ -14,21 +15,8 @@ export async function initializeArchiveOR() {
         console.log(selectedOperationRecord)
 
         // todo: render details based on fetched data
-        const tHead = `
-        <table id="selected-OR-table">
-        <thead>
-        <tr>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        </tr>
-        </thead>
-        `
+        document.getElementById("content").innerHTML = addORHtml(selectedOperationRecord);
+
 
     } else {
         const operationRecords = await fetchAnyUrl(operationRecordsFromDatabase);
