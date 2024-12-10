@@ -140,6 +140,26 @@ form h3 {
     cursor: pointer;
 }
 
+#emergencyPlan {
+    font-family: 'Montserrat', sans-serif;
+    color: #D96809;
+    background-color: #FFF;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+}
+
+.emergencyList {
+    list-style-position: inside; /* Ensures bullet points are visible */
+    text-align: left; /* Aligns the list items to the left */
+}
+
+.emergencyList li {
+    text-align: left;
+    margin-bottom: 10px;
+}
 
 
 
