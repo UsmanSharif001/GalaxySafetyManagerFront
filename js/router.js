@@ -17,6 +17,7 @@ const differentViews = {
     "#udfyldOR": () => initializeAddOR(),
 
 
+
 }
 
 function handleViewChange() {
