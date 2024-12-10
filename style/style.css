@@ -161,5 +161,19 @@ form h3 {
     margin-bottom: 10px;
 }
 
+#content {
+    text-align: left; /* Sætter tekstjusteringen til venstre */
+    padding-left: 20px; /* Tilføjer lidt indrykning for bedre visning */
+}
+
+#content ul {
+    list-style-type: none; /* Fjern standard punkttegn */
+    padding-left: 0; /* Fjern eventuelt ekstra indrykning */
+}
+
+#content li {
+    margin-bottom: 10px; /* Giver lidt afstand mellem listen */
+}
+
 
 
