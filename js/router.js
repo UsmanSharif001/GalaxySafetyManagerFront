@@ -13,10 +13,9 @@ const differentViews = {
     "#SSOR": () => initializeMenuSSOR(),
     "#udfyldSSOR":() => initializeAddSSOR(),
     "#Emergencyplan": () => initializeMenuEmergencyplan(),
+    "#archiveOR": () => initializeArchiveOR(),
     "#arkivSSOR":() => initializeSSORArchive(),
     "#udfyldOR": () => initializeAddOR(),
-
-
 }
 
 function handleViewChange() {
