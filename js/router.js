@@ -13,9 +13,10 @@ const differentViews = {
     "#SSOR": () => initializeMenuSSOR(),
     "#udfyldSSOR":() => initializeAddSSOR(),
     "#Emergencyplan": () => initializeMenuEmergencyplan(),
-    "#archiveOR": () => initializeArchiveOR(),
     "#arkivSSOR":() => initializeSSORArchive(),
     "#udfyldOR": () => initializeAddOR(),
+
+
 }
 
 function handleViewChange() {
@@ -23,8 +24,8 @@ function handleViewChange() {
 
     if (!location.hash) {
         location.hash = defaultView; // if there is no hash, then sets the default view to #mainmenu
-    } else {
-        defaultView = location.hash.match(/^#\w+/)[0] // if there is a hash, updates the default view, ignore query params
+    } else{
+        defaultView = location.hash // if there is a hash, updates the default view
     }
 
 
