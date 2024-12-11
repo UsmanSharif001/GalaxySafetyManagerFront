@@ -1,3 +1,5 @@
+import { fillFormWithInformation } from "./editSSOR.js";
+
 const arkivSSORHTML = () => `
     <h2>Sprinkler System Archive</h2>
     <table id="ssor-table">
@@ -9,6 +11,7 @@ const arkivSSORHTML = () => `
                 <th>Fungerende alarm til brandvæsen</th>
                 <th>Bemærkninger</th>
                 <th>Underskrift</th>
+                <th>Rediger</th>
             </tr>
             <tr>
                 <th></th>
@@ -40,6 +43,7 @@ export async function initializeSSORArchive() {
         location.hash = "#SSOR"; // Navigate to the SSOR view
     });
 
+
     // Fetch SSOR data from the backend API
     const response = await fetch("http://localhost:8080/ssor");
     const ssorData = await response.json();
@@ -61,8 +65,20 @@ export async function initializeSSORArchive() {
                 <td>${ssor.alarmToFireDepartmentWorking ? "Yes" : "No"}</td>
                 <td>${ssor.comments}</td>
                 <td>${ssor.signature}</td>
+                <td><button class='editBTN' data-id='${ssor.ssorid}'>Rediger</button></td>
             </tr>
         `;
         tableBody.innerHTML += row;
+        console.log(ssor)
+    });
+
+    const editButtons = document.querySelectorAll(".editBTN");
+    editButtons.forEach(button => {
+        button.addEventListener("click", async (event) => {
+            const ssorID = event.target.getAttribute("data-id");
+            console.log("Edit button clicked for ID:", ssorID); // Debugging
+            await fillFormWithInformation(ssorID);
+        });
     });
 }
+
