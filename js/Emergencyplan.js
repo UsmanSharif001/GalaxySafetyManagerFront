@@ -29,6 +29,9 @@ const emergencyplanHTML = () => {
     <li>Søg samlingssted: <i>Torvet foran biografen</i></li>
     </ul>
 </div>
+ <div class="back-button-container">
+        <button id="back-to-mainmenu" class="button-style">Tilbage</button>
+    </div>
  `
 }
 
@@ -36,6 +39,10 @@ function emergencyplanSetup() {
     console.log("Jeg er i emergencyplanSetup")
 
     document.getElementById("content").innerHTML = emergencyplanHTML()
+    document.getElementById("back-to-mainmenu").addEventListener("click", () => {
+        console.log("Navigating back to Main Menu...");
+        location.hash = "#mainmenu";
+    });
 }
 
 export function initializeMenuEmergencyplan(){

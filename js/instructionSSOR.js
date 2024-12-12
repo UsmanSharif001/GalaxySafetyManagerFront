@@ -25,7 +25,7 @@ export function initializeSSORInstruction() {
             <li>5.1 Sluk for systemet korrekt (hvis nødvendigt): Luk hovedventilen forsigtigt og sørg for, at al tryk er lettet.</li>
             <li>5.2 Gendan systemet til normal drift: Åbn ventilerne igen og verificér, at systemet er klar til brug.</li>
         </ul>
-        <button id="back-to-mainmenu" class="button-style">Tilbage til main menu</button>
+        <button id="back-to-mainmenu" class="button-style">Tilbage</button>
     `;
     document.getElementById("back-to-mainmenu").addEventListener("click", () => {
         console.log("Navigating back to Main Menu...");
