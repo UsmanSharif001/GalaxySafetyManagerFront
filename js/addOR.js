@@ -5,8 +5,6 @@ const urlPostOR = "http://localhost:8080/createOR"
 
 console.log("jeg er i addOR")
 
-
-
 async function postFormDataAsJson(url, formData) {
     console.log("Jeg er i postFormDataAsJson")
     console.log(url)

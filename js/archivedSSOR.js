@@ -28,7 +28,7 @@ const arkivSSORHTML = () => `
         </tbody>
     </table>
     <div class="back-button-container">
-        <button id="back-to-ssor">Fortryd</button>
+        <button id="back-to-ssor" class="button-style">Tilbage</button>
     </div>
 `;
 
