@@ -9,6 +9,7 @@ export async function initializeArchiveOR() {
     const queryParams = new URLSearchParams(location.hash.slice(1));
     const idParam = queryParams.get("id");
 
+
     if (idParam) {
         const selectedOperationRecord = await fetchAnyUrl(selectedOperationRecordPath + idParam)
         // render details based on fetched data
@@ -16,7 +17,8 @@ export async function initializeArchiveOR() {
         const deleteButton = document.getElementById("deleteButton")
         deleteButton.addEventListener("click", () => handleDelete(idParam))
     } else {
-        const operationRecords = await fetchAnyUrl(operationRecordsPath);
+        const operationRecords = await fetchAnyUrl(operationRecordsPath)
+        ;
 
         const tHead = `
 <table id="OR-archive-table">
@@ -44,10 +46,21 @@ export async function initializeArchiveOR() {
         )
 
         const tTail = `
+
     </tbody>
-    </table>`
+    
+    
+    </table>
+ <div class="back-button-container">
+        <button id="back-to-mainmenu" class="button-style">Tilbage</button>
+    </div>`
+
 
         document.getElementById("content").innerHTML = tHead + tBody + tTail;
+        document.getElementById("back-to-mainmenu").addEventListener("click", () => {
+            console.log("Navigating back to Main Menu...");
+            location.hash = "#mainmenu";
+        });
     }
 }
 
