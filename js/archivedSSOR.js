@@ -1,4 +1,5 @@
 import { fillFormWithInformation } from "./editSSOR.js";
+import {restDelete} from "./module.js";
 
 const arkivSSORHTML = () => `
     <h2>Sprinkler System Archive</h2>
@@ -66,6 +67,7 @@ export async function initializeSSORArchive() {
                 <td>${ssor.comments}</td>
                 <td>${ssor.signature}</td>
                 <td><button class='editBTN' data-id='${ssor.ssorid}'>Rediger</button></td>
+                <td><button class='deleteBTN' data-id='${ssor.ssorid}'>Slet</button></td>
             </tr>
         `;
         tableBody.innerHTML += row;
@@ -80,5 +82,23 @@ export async function initializeSSORArchive() {
             await fillFormWithInformation(ssorID);
         });
     });
+
+    const deleteButtons = document.querySelectorAll(".deleteBTN");
+    deleteButtons.forEach(button => {
+        button.addEventListener("click", async (event) => {
+            const ssorID = event.target.getAttribute("data-id")
+            console.log("Delete button clicked for ID:", ssorID);
+
+            if (confirm("Are you sure you want to delete this record?")) {
+                try {
+                    await restDelete(`http://localhost:8080/ssor/remove/${ssorID}`);
+                    initializeSSORArchive();
+                } catch (error) {
+                    console.error("Error deleting record:", error);
+                    alert("Failed to delete the record.");
+                }
+            }
+        })
+    })
 }
 
