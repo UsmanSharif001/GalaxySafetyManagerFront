@@ -28,7 +28,7 @@ function handleViewChange() {
     } else {
         defaultView = location.hash.match(/^#\w+/)[0] // if there is a hash, updates the default view, ignore query params
     }
-    
+
     const initializeView = differentViews[defaultView]; //uses the differentViews object ( the Array at the top)
                                                         // to find the appropriate function for the hash
 
