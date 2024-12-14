@@ -2,6 +2,11 @@ html {
     background-color: #F4F4F4;
 }
 
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #303135;
+}
+
 #app {
     height: 100%; /* Fill available vertical space */
     display: flex;
@@ -29,7 +34,6 @@ div {
     background-color: #F4F4F4;
     padding: 10px;
     width: 80%;
-    color: #D96809;
     text-align: center;
 }
 
@@ -41,7 +45,7 @@ div {
     color: white; /* Text color */
     border: none;
     border-radius: 4px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: inherit;
     font-size: 16px;
     text-align: center;
     cursor: pointer;
@@ -67,8 +71,6 @@ div {
 }
 
 #postORdiv {
-    font-family: 'Montserrat', sans-serif;
-    color: #D96809;
     background-color: #FFF;
     padding: 20px;
     border-radius: 8px;
@@ -123,7 +125,6 @@ form h2,
 form h3 {
     font-size: 18px;
     margin-top: 20px;
-    color: #D96809;
 }
 
 .back-button-container {
@@ -141,8 +142,6 @@ form h3 {
 }
 
 #emergencyPlan {
-    font-family: 'Montserrat', sans-serif;
-    color: #D96809;
     background-color: #FFF;
     padding: 20px;
     border-radius: 8px;
@@ -174,6 +173,41 @@ form h3 {
 #content li {
     margin-bottom: 10px; /* Giver lidt afstand mellem listen */
 }
+
+table {
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+th {
+    font-weight: 600;
+}
+
+/* Table headings */
+#OR-archive-table > thead > tr > th {
+    border-bottom: 1px solid #CDCDCE;
+    padding: 12px 16px;
+    text-transform: uppercase;
+    width: 25%;
+}
+
+#OR-archive-table > tbody > tr:nth-of-type(even) {
+    background-color: #ECECEC;
+}
+
+#OR-archive-table > tbody > tr > td {
+    padding: 12px 16px;
+    width: 25%;
+    cursor: pointer;
+}
+
+#OR-archive-table td.error-description {
+    max-width: calc(33.33vw - 32px);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
 
 
 

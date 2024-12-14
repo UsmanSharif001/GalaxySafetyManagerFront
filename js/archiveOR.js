@@ -38,7 +38,7 @@ export async function initializeArchiveOR() {
         <tr onclick="document.location = '#archiveOR&id=${operationRecord.orId}'">
             <td>${operationRecord.dateTime}</td>
             <td>${operationRecord.signature}</td>
-            <td>${operationRecord.errorDescription ? operationRecord.errorDescription : "–"}</td>
+            <td class="error-description">${operationRecord.errorDescription ? operationRecord.errorDescription : "–"}</td>
         </tr>
         `
                 tBody += tableRow;
