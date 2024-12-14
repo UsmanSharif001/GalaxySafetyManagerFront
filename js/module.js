@@ -28,4 +28,17 @@ async function restDelete(url){
     return response;
 }
 
-export{fetchAnyUrl,postObjectAsJson,restDelete};
+async function restPut(url, object) {
+    const objectAsJsonString = JSON.stringify(object);
+    const fetchOptions = {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: objectAsJsonString
+    };
+    const response = await fetch(url, fetchOptions);
+    return response;
+}
+
+export{fetchAnyUrl, postObjectAsJson, restDelete, restPut};

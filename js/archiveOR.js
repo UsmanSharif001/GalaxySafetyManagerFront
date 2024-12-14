@@ -1,21 +1,33 @@
-import {fetchAnyUrl, restDelete} from "./module.js";
+import {fetchAnyUrl, restDelete, restPut} from "./module.js";
 import {addORHtml} from "./forms.js";
 
 const operationRecordsPath = "http://localhost:8080/allOr";
 const selectedOperationRecordPath = "http://localhost:8080/selectedOperationRecord/"
 const deleteOperationRecordPath = "http://localhost:8080/deleteOperationRecord/"
+const updateOperationRecordPath = "http://localhost:8080/updateOperationRecord/"
 
 export async function initializeArchiveOR() {
     const queryParams = new URLSearchParams(location.hash.slice(1));
     const idParam = queryParams.get("id");
-
+    const editParam = queryParams.get("edit");
+    const editable = editParam === "true";
 
     if (idParam) {
         const selectedOperationRecord = await fetchAnyUrl(selectedOperationRecordPath + idParam)
         // render details based on fetched data
-        document.getElementById("content").innerHTML = addORHtml(selectedOperationRecord);
-        const deleteButton = document.getElementById("deleteButton")
-        deleteButton.addEventListener("click", () => handleDelete(idParam))
+        document.getElementById("content").innerHTML = addORHtml(selectedOperationRecord, editable);
+        if (!editable) {
+            const editButton = document.getElementById("editButton")
+            editButton.addEventListener("click", () => window.scrollTo(0, 0))
+            const deleteButton = document.getElementById("deleteButton")
+            deleteButton.addEventListener("click", () => handleDelete(idParam))
+        } else {
+            // Edit mode
+            const cancelButton = document.getElementById("cancelButton")
+            cancelButton.addEventListener("click", () => window.scrollTo(0, 0))
+            const form = document.getElementById("postOR");
+            form.addEventListener("submit", (event) => handleSave(event, idParam));
+        }
     } else {
         const operationRecords = await fetchAnyUrl(operationRecordsPath)
         ;
@@ -38,7 +50,7 @@ export async function initializeArchiveOR() {
         <tr onclick="document.location = '#archiveOR&id=${operationRecord.orId}'">
             <td>${operationRecord.dateTime}</td>
             <td>${operationRecord.signature}</td>
-            <td>${operationRecord.errorDescription ? operationRecord.errorDescription : "–"}</td>
+            <td class="error-description">${operationRecord.errorDescription ? operationRecord.errorDescription : "–"}</td>
         </tr>
         `
                 tBody += tableRow;
@@ -66,5 +78,13 @@ export async function initializeArchiveOR() {
 
 function handleDelete(id) {
     restDelete(deleteOperationRecordPath + id)
+        .then(() => location.hash = "#archiveOR");
+}
+
+function handleSave(event, id) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    restPut(updateOperationRecordPath + id, Object.fromEntries(formData.entries()))
+        .then(() => alert("Ændringerne er gemt"))
         .then(() => location.hash = "#archiveOR");
 }
