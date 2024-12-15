@@ -46,9 +46,10 @@ export async function initializeArchiveOR() {
 
         let tBody = "";
         operationRecords.forEach(operationRecord => {
+                const dateSegments = operationRecord.dateTime.split("-");
                 const tableRow = `
         <tr onclick="document.location = '#archiveOR&id=${operationRecord.orId}'">
-            <td>${operationRecord.dateTime}</td>
+            <td>${dateSegments[2]}-${dateSegments[1]}-${dateSegments[0]}</td>
             <td>${operationRecord.signature}</td>
             <td class="error-description">${operationRecord.errorDescription ? operationRecord.errorDescription : "–"}</td>
         </tr>
