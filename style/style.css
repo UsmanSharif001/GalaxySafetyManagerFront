@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 html {
     background-color: #F4F4F4;
 }
@@ -5,6 +9,8 @@ html {
 body {
     font-family: 'Montserrat', sans-serif;
     color: #303135;
+    margin: 0;
+    line-height: 1.45;
 }
 
 #app {
@@ -22,19 +28,8 @@ body {
     justify-content: center;
     gap: 20px; /* Add space between items */
     align-items: center; /* Center items horizontally (optional) */
-    padding: 20px; /* Optional padding */
-    /*width: 100%;*/
-}
-
-div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #F4F4F4;
-    padding: 10px;
-    width: 80%;
-    text-align: center;
+    padding-top: 32px;
+    padding-bottom: 32px;
 }
 
 .page-title {
@@ -66,7 +61,7 @@ div {
 
 .button-style.menu-button {
     width: 100%;
-    max-width: 264px;
+    max-width: 324px;
 }
 
 .button-style.secondary-button {
@@ -90,12 +85,36 @@ div {
 }
 
 .content-container {
-    background-color: #FFF;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    max-width: 800px;
+    max-width: min(100vw, 512px);
+}
+
+.content-container > *:not(.checklist-item) {
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+.content-container > .checklist-item {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 16px;
+    align-items: center;
+    text-align: left;
+    padding: 12px 16px;
+    margin: 0;
+    background-color: #F4F4F4;
+    cursor: pointer;
+}
+
+.content-container > .checklist-item:nth-of-type(even) {
+    background-color: #ECECEC;
+}
+
+.content-container > .checklist-item > input {
+    margin: 0;
 }
 
 form {
@@ -117,7 +136,7 @@ form textarea {
     font-size: 14px;
     border: 1px solid #ddd;
     border-radius: 4px;
-    width: 100%;
+    margin-bottom: 16px;
 }
 
 form input[type="checkbox"] {
@@ -141,10 +160,15 @@ form button:hover {
     background-color: #D96809;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.25;
+}
+
 form h2,
 form h3 {
     font-size: 18px;
-    margin-top: 20px;
+    margin-top: 24px;
+    margin-bottom: 8px;
 }
 
 .form-footer {
@@ -153,6 +177,7 @@ form h3 {
     flex-direction: row;
     gap: 24px;
     justify-content: space-between;
+    padding: 0 16px;
 }
 
 .form-footer > .button-style {
@@ -191,11 +216,6 @@ form h3 {
 .emergencyList li {
     text-align: left;
     margin-bottom: 10px;
-}
-
-#content {
-    text-align: left; /* Sætter tekstjusteringen til venstre */
-    padding-left: 20px; /* Tilføjer lidt indrykning for bedre visning */
 }
 
 #content ul {
