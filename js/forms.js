@@ -4,24 +4,32 @@ function addORHtml(formData, editable){
     const disableForm = formData && !editable;
     const formHeading = formData.dateTime ? "Driftjournal: " + formData.dateTime : "Udfyld Driftjournal";
     const newFormFooter = `
-        <button id="pbPostOR" type="submit">Tilføj</button>
-        <a id="cancelLink" href="#OR" class="button-style">Tilbage</a>
+        <div class="form-footer">
+        <a id="cancelLink" href="#OR" class="button-style secondary-button">Tilbage</a>
+        <button id="pbPostOR" type="submit" class="button-style">Tilføj</button>
+        </div>
     `
     const showFormFooter = `
+        <div class="form-footer">
+        <a href="#archiveOR" class="button-style secondary-button">Tilbage</a>
         <a href="#archiveOR&id=${formData.orId}&edit=true" id="editButton" class="button-style">Rediger</a>
-        <button id="deleteButton">Slet</button>
+        <button id="deleteButton" class="button-style">Slet</button>
+        </div>
     `
     const editFormFooter = `
-        <a href="#archiveOR&id=${formData.orId}" id="cancelButton" class="button-style">Annuller</a>
-        <button type="submit" id="saveButton">Gem</button>
+        <div class="form-footer">
+        <a href="#archiveOR&id=${formData.orId}" id="cancelButton" class="button-style secondary-button">Annuller</a>
+        <button type="submit" id="saveButton" class="button-style">Gem</button>
+        </div>
     `
     const existingFormFooter = formData && editable ? editFormFooter : showFormFooter;
     const formFooter = formData ? existingFormFooter : newFormFooter;
 
     return `
-    <div id="postORdiv">
-            <h2>${formHeading}</h2>
+    <div id="postORdiv" >
             <form id="postOR">
+            <div class="content-container">
+            <h2>${formHeading}</h2>
                  <h3>Flugtveje</h3>
                  
                 <label for="escapeRouteClear">Flugtveje er frie og ryddelige i hele deres bredde</label>
@@ -91,6 +99,7 @@ function addORHtml(formData, editable){
                 <input ${formData.signature ? `value="${formData.signature}"` : ''} type="text" id="signature" name="signature" required ${disableForm ? 'disabled' : ''}>
                 <br>
 
+                </div>
                 ${formFooter}
             </form>
         </div>
@@ -99,6 +108,7 @@ function addORHtml(formData, editable){
 
 function addSSORHTML(){
     return `
+    <div class="content-container">
     <h2>Add New Sprinkler System</h2>
     <form id="add-ssor-form">
         <label>Dato:</label>
@@ -122,8 +132,10 @@ function addSSORHTML(){
         <label>Underskrift</label>
         <input type="text" name="signature" /><br>
 
-        <button type="submit">Tilføj</button>
-        <button id="cancel-add" type="button">Fortryd</button>
+        <div class="form-footer">
+        <button type="submit" class="button-style">Tilføj</button>
+        <button id="cancel-add" type="button" class="button-style secondary-button">Annuller</button>
+        </div></div>
     </form>
 `}
 

@@ -33,6 +33,7 @@ export async function initializeArchiveOR() {
         ;
 
         const tHead = `
+<h1 class="page-title">Arkiv: Driftjournal Arrangement</h1>
 <table id="OR-archive-table">
  <thead>
  <tr>
@@ -65,7 +66,7 @@ export async function initializeArchiveOR() {
     
     </table>
  <div class="back-button-container">
-        <button id="back-to-mainmenu" class="button-style">Tilbage</button>
+        <button id="back-to-mainmenu" class="button-style secondary-button">Tilbage</button>
     </div>`
 
 

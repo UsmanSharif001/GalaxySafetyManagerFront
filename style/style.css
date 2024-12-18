@@ -37,16 +37,23 @@ div {
     text-align: center;
 }
 
+.page-title {
+    font-size: 20px;
+}
+
 .button-style {
     display: inline-block;
     padding: 10px 20px;
     text-decoration: none; /* Remove underline */
     background-color: #FC7E0B; /* Button color */
     color: white; /* Text color */
-    border: none;
+    border: 2px solid #FC7E0B;
     border-radius: 4px;
     font-family: inherit;
+    font-weight: 600;
     font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     text-align: center;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
@@ -57,7 +64,19 @@ div {
     transform: scale(1.05);
 }
 
+.button-style.menu-button {
+    width: 100%;
+    max-width: 264px;
+}
+
+.button-style.secondary-button {
+    background-color: transparent;
+    color: #FC7E0B;
+    border: 2px solid #FC7E0B;
+}
+
 .site-header {
+    width: 100%;
     display: flex;
     justify-content: center; /* Center the image horizontally */
     align-items: center; /* Center vertically if needed */
@@ -66,11 +85,11 @@ div {
 
 .header-image {
     width: calc(80% - 40px); /* Match button width (adjust as needed) */
-    max-width: 600px; /* Optional max width for larger screens */
+    max-width: 160px; /* Optional max width for larger screens */
     object-fit: cover; /* Ensure proper scaling */
 }
 
-#postORdiv {
+.content-container {
     background-color: #FFF;
     padding: 20px;
     border-radius: 8px;
@@ -126,6 +145,19 @@ form h2,
 form h3 {
     font-size: 18px;
     margin-top: 20px;
+}
+
+.form-footer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    justify-content: space-between;
+}
+
+.form-footer > .button-style {
+    width: 100%;
+    flex: 1;
 }
 
 .back-button-container {
