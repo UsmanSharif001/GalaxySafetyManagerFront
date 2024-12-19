@@ -7,6 +7,7 @@ import {initializeAddSSOR} from "./addSSOR.js";
 import {initializeSSORArchive} from "./archivedSSOR.js";
 import {initializeAddOR} from "./addOR.js";
 import {initializeSSORInstruction} from "./instructionSSOR.js";
+import {initializeORInstruction} from "./instructionOR.js";
 
 const differentViews = {
     "#mainmenu": () => initializeMainMenu(),
@@ -17,7 +18,8 @@ const differentViews = {
     "#archiveOR": () => initializeArchiveOR(),
     "#arkivSSOR":() => initializeSSORArchive(),
     "#udfyldOR": () => initializeAddOR(),
-    "#instruktionSSOR": () => initializeSSORInstruction()
+    "#instruktionSSOR": () => initializeSSORInstruction(),
+    "#instruktionOR": () => initializeORInstruction()
 }
 
 function handleViewChange() {
