@@ -33,6 +33,7 @@ export async function initializeArchiveOR() {
         ;
 
         const tHead = `
+<h1 class="page-title">Arkiv: Driftjournal Arrangement</h1>
 <table id="OR-archive-table">
  <thead>
  <tr>
@@ -65,14 +66,14 @@ export async function initializeArchiveOR() {
     
     </table>
  <div class="back-button-container">
-        <button id="back-to-mainmenu" class="button-style">Tilbage</button>
+        <button id="back-to-ORmenu" class="button-style secondary-button">Tilbage</button>
     </div>`
 
 
         document.getElementById("content").innerHTML = tHead + tBody + tTail;
-        document.getElementById("back-to-mainmenu").addEventListener("click", () => {
-            console.log("Navigating back to Main Menu...");
-            location.hash = "#mainmenu";
+        document.getElementById("back-to-ORmenu").addEventListener("click", () => {
+            console.log("Navigating back to OR menu");
+            location.hash = "#OR";
         });
     }
 }

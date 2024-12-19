@@ -4,6 +4,7 @@ export function initializeSSORInstruction() {
     console.log("Initializing SSOR Instructions View...");
     const content = document.getElementById("content");
     content.innerHTML = `
+        <div class="content-container">
         <h1>Sprinkleranlægsinstruktioner:</h1>
         <h2>Udførlig guide til start og afslutning af sprinkleranlæg:</h2>
         <ul>
@@ -24,8 +25,8 @@ export function initializeSSORInstruction() {
             <h4>5.Afslutning</h4>
             <li>5.1 Sluk for systemet korrekt (hvis nødvendigt): Luk hovedventilen forsigtigt og sørg for, at al tryk er lettet.</li>
             <li>5.2 Gendan systemet til normal drift: Åbn ventilerne igen og verificér, at systemet er klar til brug.</li>
-        </ul>
-        <button id="back-to-mainmenu" class="button-style">Tilbage</button>
+        </ul></div>
+        <button id="back-to-mainmenu" class="button-style secondary-button">Tilbage</button>
     `;
     document.getElementById("back-to-mainmenu").addEventListener("click", () => {
         console.log("Navigating back to Main Menu...");
