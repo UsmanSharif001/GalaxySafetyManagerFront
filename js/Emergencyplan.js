@@ -30,7 +30,7 @@ const emergencyplanHTML = () => {
     </ul>
 </div>
  <div class="back-button-container">
-        <button id="back-to-mainmenu" class="button-style">Tilbage</button>
+        <button id="back-to-mainmenu" class="button-style secondary-button">Tilbage</button>
     </div>
  `
 }

@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 html {
     background-color: #F4F4F4;
 }
@@ -5,6 +9,8 @@ html {
 body {
     font-family: 'Montserrat', sans-serif;
     color: #303135;
+    margin: 0;
+    line-height: 1.45;
 }
 
 #app {
@@ -22,19 +28,12 @@ body {
     justify-content: center;
     gap: 20px; /* Add space between items */
     align-items: center; /* Center items horizontally (optional) */
-    padding: 20px; /* Optional padding */
-    /*width: 100%;*/
+    padding-top: 32px;
+    padding-bottom: 32px;
 }
 
-div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #F4F4F4;
-    padding: 10px;
-    width: 80%;
-    text-align: center;
+.page-title {
+    font-size: 20px;
 }
 
 .button-style {
@@ -43,10 +42,13 @@ div {
     text-decoration: none; /* Remove underline */
     background-color: #FC7E0B; /* Button color */
     color: white; /* Text color */
-    border: none;
+    border: 2px solid #FC7E0B;
     border-radius: 4px;
     font-family: inherit;
+    font-weight: 600;
     font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     text-align: center;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
@@ -57,7 +59,19 @@ div {
     transform: scale(1.05);
 }
 
+.button-style.menu-button {
+    width: 100%;
+    max-width: 324px;
+}
+
+.button-style.secondary-button {
+    background-color: transparent;
+    color: #FC7E0B;
+    border: 2px solid #FC7E0B;
+}
+
 .site-header {
+    width: 100%;
     display: flex;
     justify-content: center; /* Center the image horizontally */
     align-items: center; /* Center vertically if needed */
@@ -66,17 +80,41 @@ div {
 
 .header-image {
     width: calc(80% - 40px); /* Match button width (adjust as needed) */
-    max-width: 600px; /* Optional max width for larger screens */
+    max-width: 160px; /* Optional max width for larger screens */
     object-fit: cover; /* Ensure proper scaling */
 }
 
-#postORdiv {
-    background-color: #FFF;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+.content-container {
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    max-width: 800px;
+    max-width: min(100vw, 512px);
+}
+
+.content-container > *:not(.checklist-item) {
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+.content-container > .checklist-item {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 16px;
+    align-items: center;
+    text-align: left;
+    padding: 12px 16px;
+    margin: 0;
+    background-color: #F4F4F4;
+    cursor: pointer;
+}
+
+.content-container > .checklist-item:nth-of-type(even) {
+    background-color: #ECECEC;
+}
+
+.content-container > .checklist-item > input {
+    margin: 0;
 }
 
 form {
@@ -98,7 +136,7 @@ form textarea {
     font-size: 14px;
     border: 1px solid #ddd;
     border-radius: 4px;
-    width: 100%;
+    margin-bottom: 16px;
 }
 
 form input[type="checkbox"] {
@@ -122,10 +160,29 @@ form button:hover {
     background-color: #D96809;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.25;
+}
+
 form h2,
 form h3 {
     font-size: 18px;
-    margin-top: 20px;
+    margin-top: 24px;
+    margin-bottom: 8px;
+}
+
+.form-footer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    justify-content: space-between;
+    padding: 0 16px;
+}
+
+.form-footer > .button-style {
+    width: 100%;
+    flex: 1;
 }
 
 .back-button-container {
@@ -159,11 +216,6 @@ form h3 {
 .emergencyList li {
     text-align: left;
     margin-bottom: 10px;
-}
-
-#content {
-    text-align: left; /* Sætter tekstjusteringen til venstre */
-    padding-left: 20px; /* Tilføjer lidt indrykning for bedre visning */
 }
 
 #content ul {

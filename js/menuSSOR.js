@@ -2,11 +2,15 @@ console.log("jeg er i menuSSOR")
 
 const menuSSOR = () => {
     return `
-    <a href="#udfyldSSOR" class="view-link button-style">Udfyld</a>
-    <a href="#arkivSSOR" class="view-link button-style">Vis Arkiv</a>
-    <a href="#instruktionSSOR" class="view-link button-style">Instruktion</a>
+<header class="site-header">
+    <img src="style/galaksen_logo.svg" alt="Website Header" class="header-image">
+</header>
+    <h1 class="page-title">Driftjournal Sprinklersystem</h1>
+    <a href="#udfyldSSOR" class="view-link button-style menu-button">Udfyld</a>
+    <a href="#arkivSSOR" class="view-link button-style menu-button">Vis Arkiv</a>
+    <a href="#instruktionSSOR" class="view-link button-style menu-button">Instruktion</a>
      <div class="back-button-container">
-        <button id="back-to-mainmenu" class="button-style">Tilbage</button>
+        <button id="back-to-mainmenu" class="button-style secondary-button">Tilbage</button>
     </div>
  `
 }
